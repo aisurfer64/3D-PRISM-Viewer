@@ -5,6 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hololens 2</title>
   <style>
+    :root {
+      /* How much of Sketchfab's own top and bottom bars to push off-screen */
+      --crop-top: 72px;
+      --crop-bottom: 56px;
+    }
     html, body {
       margin: 0;
       padding: 0;
@@ -15,12 +20,23 @@
     }
     iframe {
       position: fixed;
-      inset: 0;
+      left: 0;
+      top: calc(-1 * var(--crop-top));
       width: 100vw;
-      height: 100vh;
-      height: 100dvh;
+      height: calc(100vh + var(--crop-top) + var(--crop-bottom));
+      height: calc(100dvh + var(--crop-top) + var(--crop-bottom));
       border: 0;
       display: block;
+    }
+    .thanks {
+      position: fixed;
+      right: 12px;
+      bottom: 10px;
+      margin: 0;
+      font: 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: rgba(255, 255, 255, 0.55);
+      pointer-events: none;
+      user-select: none;
     }
   </style>
 </head>
@@ -35,7 +51,8 @@
     execution-while-out-of-viewport
     execution-while-not-rendered
     web-share
-    src="https://sketchfab.com/models/3dd665394e6f4b62ba16338e55828ddd/embed?autostart=1&preload=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_watermark_link=0&ui_help=0&ui_settings=0&ui_inspector=0&ui_annotations=0&ui_stop=0&ui_vr=0&ui_ar=0&ui_ar_help=0&ui_ar_qrcode=0&ui_color=000000">
+    src="https://sketchfab.com/models/3dd665394e6f4b62ba16338e55828ddd/embed?autostart=1&preload=1&ui_theme=dark&ui_hint=0&ui_infos=0&ui_watermark=0&ui_watermark_link=0&ui_help=0&ui_settings=0&ui_inspector=0&ui_annotations=0&ui_stop=0&ui_vr=0&ui_ar=0&ui_ar_help=0&ui_ar_qrcode=0&ui_controls=0&ui_color=000000">
   </iframe>
+  <p class="thanks">Thanks to Faber</p>
 </body>
 </html>

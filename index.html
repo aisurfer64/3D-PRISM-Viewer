@@ -6,9 +6,10 @@
   <title>Hololens 2</title>
   <style>
     :root {
-      /* How much of Sketchfab's own top and bottom bars to push off-screen */
-      --crop-top: 72px;
-      --crop-bottom: 56px;
+      /* How much of Sketchfab's own bars and edge buttons to push off-screen */
+      --crop-top: 90px;
+      --crop-bottom: 90px;
+      --crop-side: 24px;
     }
     html, body {
       margin: 0;
@@ -20,9 +21,9 @@
     }
     iframe {
       position: fixed;
-      left: 0;
+      left: calc(-1 * var(--crop-side));
       top: calc(-1 * var(--crop-top));
-      width: 100vw;
+      width: calc(100vw + 2 * var(--crop-side));
       height: calc(100vh + var(--crop-top) + var(--crop-bottom));
       height: calc(100dvh + var(--crop-top) + var(--crop-bottom));
       border: 0;
@@ -30,11 +31,11 @@
     }
     .thanks {
       position: fixed;
-      right: 12px;
-      bottom: 10px;
+      right: 10px;
+      bottom: 8px;
       margin: 0;
-      font: 12px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
-      color: rgba(255, 255, 255, 0.55);
+      font: 10px/1.2 system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: rgba(255, 255, 255, 0.5);
       pointer-events: none;
       user-select: none;
     }
